@@ -23,7 +23,7 @@ const CONFIG = {
   // 1. Dans Google Forms : bouton "Envoyer" > onglet "< >" (intégrer)
   // 2. Copier l'URL qui est dans src="..." et la coller ci-dessous
   //    (elle doit finir par "viewform?embedded=true")
-  googleFormUrl: "", // ex : "https://docs.google.com/forms/d/e/XXXX/viewform?embedded=true"
+  googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeWX1zbrp7ROeV9Eq6U2LI_jbyLxPFf8_GebbIeyOr2PgZVqw/viewform?embedded=true",
 
   // --- Programme -------------------------------------------------------
   programme: {
