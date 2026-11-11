@@ -26,6 +26,7 @@
     nomEvenement: C.nomEvenement,
     sousTitre: C.sousTitre,
     lieu: C.lieu,
+    prix: C.prix,
     dateEvenement: fmtDate(eventDate),
     dateLimiteInscription: fmtDate(deadline, true),
   };

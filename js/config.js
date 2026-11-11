@@ -8,6 +8,7 @@ const CONFIG = {
   nomEvenement: "Noël de l'IHECF",
   sousTitre: "Une journée magique pour les élèves de l'IHECF Nantes",
   lieu: "IHECF Nantes", // ex : "Campus IHECF, 12 rue ..., Nantes"
+  prix: "15 € la journée, repas inclus",
 
   // Date de l'événement (format AAAA-MM-JJTHH:MM, heure de Paris)
   dateEvenement: "2026-12-18T10:00",
@@ -53,9 +54,9 @@ const CONFIG = {
   // --- Traiteur --------------------------------------------------------
   traiteur: {
     nom: "E.Leclerc Traiteur",
-    slogan: "Le service traiteur de votre E.Leclerc nantais",
+    slogan: "Le service traiteur de l'E.Leclerc de Saint-Herblain",
     description:
-      "Pour notre dîner de Noël, nous faisons confiance au service traiteur E.Leclerc. " +
+      "Pour notre dîner de Noël, nous faisons confiance au service traiteur de l'E.Leclerc de Saint-Herblain. " +
       "Leur équipe prépare le repas de la soirée, et nous ferons adapter les assiettes " +
       "selon les allergies et régimes alimentaires que vous nous signalez à l'inscription.",
     points: ["Repas préparé par le rayon traiteur", "Alternatives végétariennes", "Adaptations allergies & intolérances"],
@@ -67,7 +68,7 @@ const CONFIG = {
   // --- Menu du dîner ---------------------------------------------------
   menu: {
     heure: "19h45",
-    prix: "15 €", // laisser "" pour masquer
+    prix: "Inclus dans le tarif de la journée (15 €)", // laisser "" pour masquer
     sections: [
       { titre: "Entrée",  plats: ["Velouté de potimarron & éclats de châtaigne", "Option végétarienne disponible"] },
       { titre: "Plat",    plats: ["Suprême de volaille, sauce aux morilles", "Gratin dauphinois & légumes rôtis", "Alternative végétarienne : risotto aux champignons"] },
