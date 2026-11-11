@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Inscription · Noël IHECF</title>
+  <meta name="description" content="Inscription à la journée et au dîner de Noël de l'IHECF Nantes.">
+  <meta name="theme-color" content="#0f2a1d">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎄</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="inscription">
+  <canvas id="snow" aria-hidden="true"></canvas>
+
+  <nav class="nav">
+    <a href="index.html" data-nav="accueil">Accueil</a>
+    <a href="programme.html" data-nav="programme">Programme</a>
+    <a href="menu.html" data-nav="menu">Menu</a>
+    <a href="inscription.html" data-nav="inscription" class="nav-cta">S'inscrire</a>
+  </nav>
+
+  <header class="page-head">
+    <p class="hero-kicker">Réserve ta place</p>
+    <h1>Inscription</h1>
+    <p class="deadline-banner" id="deadline-banner">
+      ⏳ Clôture le <strong data-bind="dateLimiteInscription"></strong>
+      <span class="deadline-left" id="deadline-left"></span>
+    </p>
+  </header>
+
+  <main class="section">
+    <div class="steps">
+      <div class="step"><span>1</span><p>Remplis le formulaire ci-dessous</p></div>
+      <div class="step"><span>2</span><p>Indique tes <strong>allergies, intolérances ou régime</strong> (végétarien, sans gluten, sans porc…)</p></div>
+      <div class="step"><span>3</span><p>Reçois la confirmation et rendez-vous le jour J !</p></div>
+    </div>
+
+    <p class="lead small">
+      En t'inscrivant, tu acceptes le <a href="reglement.html">règlement général et les CGV</a>.
+    </p>
+
+    <div id="form-open" class="form-wrap" hidden>
+      <iframe id="gform" title="Formulaire d'inscription" loading="lazy">Chargement…</iframe>
+      <p class="form-fallback">
+        Le formulaire ne s'affiche pas ? <a id="form-link" href="#" target="_blank" rel="noopener">Ouvre-le dans un nouvel onglet</a>.
+      </p>
+    </div>
+
+    <div id="form-missing" class="notice" hidden>
+      🛠️ Le formulaire d'inscription arrive très bientôt !
+    </div>
+
+    <div id="form-closed" class="notice" hidden>
+      ⛄ Les inscriptions sont <strong>closes</strong>. Merci à tous, on se voit le jour J !
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Organisé avec ❤️ par le BDE de l'IHECF Nantes</p>
+    <p class="footer-links"><a href="reglement.html">Règlement &amp; CGV</a><span id="contact-links"></span></p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Noël de l'IHECF</title>
+  <meta name="description" content="Programme, menu et inscription à la journée de Noël des élèves de l'IHECF Nantes.">
+  <meta name="theme-color" content="#0f2a1d">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎄</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="accueil">
+  <canvas id="snow" aria-hidden="true"></canvas>
+
+  <nav class="nav">
+    <a href="index.html" data-nav="accueil">Accueil</a>
+    <a href="programme.html" data-nav="programme">Programme</a>
+    <a href="menu.html" data-nav="menu">Menu</a>
+    <a href="inscription.html" data-nav="inscription" class="nav-cta">S'inscrire</a>
+  </nav>
+
+  <header class="hero">
+    <div class="garland" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p class="hero-kicker">Le BDE vous invite</p>
+    <h1 data-bind="nomEvenement">Noël de l'IHECF</h1>
+    <p class="hero-sub" data-bind="sousTitre"></p>
+    <div class="hero-meta">
+      <span class="pill">📅 <span data-bind="dateEvenement"></span></span>
+      <span class="pill">📍 <span data-bind="lieu"></span></span>
+    </div>
+
+    <div class="countdown-card">
+      <p class="countdown-label" id="countdown-label">Clôture des inscriptions dans</p>
+      <div class="countdown" id="countdown">
+        <div><strong data-cd="j">--</strong><span>jours</span></div>
+        <div><strong data-cd="h">--</strong><span>heures</span></div>
+        <div><strong data-cd="m">--</strong><span>min</span></div>
+        <div><strong data-cd="s">--</strong><span>sec</span></div>
+      </div>
+      <p class="deadline">Inscriptions jusqu'au <strong data-bind="dateLimiteInscription"></strong></p>
+      <a href="inscription.html" class="btn" data-signup>Je m'inscris 🎅</a>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="cards">
+      <a class="card" href="programme.html">
+        <span class="card-icon" aria-hidden="true">🎄</span>
+        <h2>Programme</h2>
+        <p>Les activités de la journée et le déroulé de la soirée.</p>
+        <span class="card-link">Voir le programme →</span>
+      </a>
+      <a class="card" href="menu.html">
+        <span class="card-icon" aria-hidden="true">🍽️</span>
+        <h2>Menu</h2>
+        <p>Le dîner de Noël et la présentation de notre traiteur.</p>
+        <span class="card-link">Voir le menu →</span>
+      </a>
+      <a class="card card-red" href="inscription.html" data-signup>
+        <span class="card-icon" aria-hidden="true">✍️</span>
+        <h2>Inscription</h2>
+        <p>Réserve ta place et signale tes allergies ou régimes alimentaires.</p>
+        <span class="card-link">Je m'inscris →</span>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Organisé avec ❤️ par le BDE de l'IHECF Nantes</p>
+    <p class="footer-links"><a href="reglement.html">Règlement &amp; CGV</a><span id="contact-links"></span></p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

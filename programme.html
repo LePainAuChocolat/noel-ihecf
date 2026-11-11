@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Programme · Noël IHECF</title>
+  <meta name="description" content="Programme de la journée et de la soirée de Noël de l'IHECF Nantes.">
+  <meta name="theme-color" content="#0f2a1d">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎄</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="programme">
+  <canvas id="snow" aria-hidden="true"></canvas>
+
+  <nav class="nav">
+    <a href="index.html" data-nav="accueil">Accueil</a>
+    <a href="programme.html" data-nav="programme">Programme</a>
+    <a href="menu.html" data-nav="menu">Menu</a>
+    <a href="inscription.html" data-nav="inscription" class="nav-cta">S'inscrire</a>
+  </nav>
+
+  <header class="page-head">
+    <p class="hero-kicker">📅 <span data-bind="dateEvenement"></span></p>
+    <h1>Le programme</h1>
+    <div class="tabs">
+      <a href="#journee" class="pill">☀️ La journée</a>
+      <a href="#soiree" class="pill">🌙 La soirée</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="journee" class="section">
+      <h2><span aria-hidden="true">☀️</span> <span data-prog="journee.titre"></span></h2>
+      <p class="lead"><strong data-prog="journee.horaires"></strong> · <span data-prog="journee.intro"></span></p>
+      <ol class="timeline" data-timeline="journee"></ol>
+    </section>
+
+    <section id="soiree" class="section section-night">
+      <h2><span aria-hidden="true">🌙</span> <span data-prog="soiree.titre"></span></h2>
+      <p class="lead"><strong data-prog="soiree.horaires"></strong> · <span data-prog="soiree.intro"></span></p>
+      <ol class="timeline" data-timeline="soiree"></ol>
+      <p class="center-actions">
+        <a href="menu.html" class="btn btn-ghost">Voir le menu du dîner</a>
+        <a href="inscription.html" class="btn" data-signup>Je m'inscris 🎅</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Organisé avec ❤️ par le BDE de l'IHECF Nantes</p>
+    <p class="footer-links"><a href="reglement.html">Règlement &amp; CGV</a><span id="contact-links"></span></p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
