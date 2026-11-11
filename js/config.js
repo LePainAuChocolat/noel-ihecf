@@ -10,6 +10,9 @@ const CONFIG = {
   lieu: "IHECF Nantes", // ex : "Campus IHECF, 12 rue ..., Nantes"
   prix: "15 € la journée, repas inclus",
 
+  // Adresse publique du site (affichée avec le QR code dans la partie "Partager")
+  urlSite: "https://lepainauchocolat.github.io/noel-ihecf/",
+
   // Date de l'événement (format AAAA-MM-JJTHH:MM, heure de Paris)
   dateEvenement: "2026-12-18T10:00",
 

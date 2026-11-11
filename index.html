@@ -70,11 +70,28 @@
         <span class="card-link">Je m'inscris →</span>
       </a>
     </div>
+
+    <section id="partager" class="share">
+      <h2><span aria-hidden="true">❄</span> Partage l'événement <span aria-hidden="true">❄</span></h2>
+      <div class="share-card">
+        <img src="images/qrcode.png" alt="QR code vers le site de l'événement" width="220" height="220">
+        <div class="share-body">
+          <p>Scanne le QR code ou envoie le lien à tes camarades :</p>
+          <p class="share-url"><a id="share-url" href="#"></a></p>
+          <div class="share-actions">
+            <button type="button" class="btn" id="copy-link">📋 Copier le lien</button>
+            <button type="button" class="btn btn-ghost" id="native-share" hidden>📤 Partager</button>
+          </div>
+          <p class="share-feedback" id="share-feedback" role="status"></p>
+          <p><a href="images/qrcode.png" download="qrcode-noel-ihecf.png">Télécharger le QR code</a></p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <p>Organisé avec ❤️ par le BDE de l'IHECF Nantes</p>
-    <p class="footer-links"><a href="reglement.html">Règlement &amp; CGV</a><span id="contact-links"></span></p>
+    <p class="footer-links"><a href="reglement.html">Règlement &amp; CGV</a><a href="index.html#partager">📲 Partager</a><span id="contact-links"></span></p>
   </footer>
 
   <script src="js/config.js"></script>

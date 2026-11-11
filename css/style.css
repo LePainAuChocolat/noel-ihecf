@@ -84,6 +84,27 @@ h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; line-height: 1.15;
 .card-red { background: var(--red-600); color: #fff; border-color: var(--gold); }
 .section .card-red h2, .card-red .card-link { color: var(--gold-soft); }
 
+/* ---------- Partage ---------- */
+.share { margin-top: 60px; scroll-margin-top: 70px; }
+.share-card {
+  display: flex; gap: 28px; align-items: center; justify-content: center; flex-wrap: wrap;
+  background: var(--cream); color: var(--ink);
+  border-radius: var(--radius); padding: 26px;
+  border: 3px solid var(--gold); box-shadow: var(--shadow);
+}
+.share-card img {
+  width: 220px; height: 220px; max-width: 100%;
+  border-radius: 12px; border: 3px solid var(--red-600); background: #fff;
+}
+.share-body { flex: 1 1 260px; text-align: center; }
+.share-body p { margin: 0 0 12px; }
+.share-body a { color: var(--red-600); font-weight: 700; }
+.share-url a { font-size: 1.05rem; overflow-wrap: anywhere; }
+.share-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
+.share-actions .btn { border: 0; font: inherit; font-weight: 800; cursor: pointer; }
+.share-actions .btn-ghost { border: 2px solid var(--red-600); color: var(--red-600); }
+.share-feedback { min-height: 1.4em; font-weight: 700; color: var(--green-700); }
+
 /* ---------- Programme ---------- */
 .section-night {
   background: linear-gradient(180deg, rgba(10,14,40,.0), rgba(10,14,40,.55) 15%, rgba(10,14,40,.55) 85%, rgba(10,14,40,0));

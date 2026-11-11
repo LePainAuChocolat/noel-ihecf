@@ -45,7 +45,7 @@
   }
 
   /* ---------- Page par page ---------- */
-  if (page === "accueil") initCountdown();
+  if (page === "accueil") { initCountdown(); initShare(); }
   if (page === "programme") initProgramme();
   if (page === "menu") initMenu();
   if (page === "inscription") initInscription();
@@ -71,6 +71,33 @@
     }
     if (tick()) {
       const timer = setInterval(() => { if (!tick()) clearInterval(timer); }, 1000);
+    }
+  }
+
+  /* ---------- Accueil : partage (QR code + lien) ---------- */
+  function initShare() {
+    const url = C.urlSite || location.href.split("#")[0];
+    const link = $("share-url");
+    link.href = url;
+    link.textContent = url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+    const feedback = $("share-feedback");
+
+    $("copy-link").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(url);
+        feedback.textContent = "✅ Lien copié !";
+      } catch (e) {
+        feedback.textContent = "Copie impossible : sélectionne le lien ci-dessus.";
+      }
+      setTimeout(() => (feedback.textContent = ""), 2500);
+    });
+
+    if (navigator.share) {
+      const btn = $("native-share");
+      btn.hidden = false;
+      btn.addEventListener("click", () => {
+        navigator.share({ title: C.nomEvenement, text: C.sousTitre, url }).catch(() => {});
+      });
     }
   }
 
