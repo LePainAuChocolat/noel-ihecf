@@ -359,3 +359,11 @@ h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; line-height: 1.15;
   html { scroll-behavior: auto; }
   .garland span { animation: none; }
 }
+
+/* ---------- Avertissement paiement ---------- */
+.pay-warning {
+  max-width: 620px; margin: 0 auto 16px; text-align: center;
+  background: #fde8ea; color: #7d141e;
+  border: 2px solid var(--red-600); border-radius: 12px;
+  padding: 12px 16px; font-size: .95rem;
+}

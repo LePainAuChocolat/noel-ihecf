@@ -29,6 +29,7 @@
     prix: C.prix,
     dateEvenement: fmtDate(eventDate),
     dateLimiteInscription: fmtDate(deadline, true),
+    dateLimitePaiement: fmtDate(new Date(C.dateLimitePaiement || C.dateLimiteInscription), true),
   };
   $$("[data-bind]").forEach((el) => { el.textContent = binds[el.dataset.bind] ?? ""; });
 

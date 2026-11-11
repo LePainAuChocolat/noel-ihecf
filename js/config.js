@@ -19,6 +19,9 @@ const CONFIG = {
   // Date LIMITE d'inscription : après cette date, le formulaire se ferme
   dateLimiteInscription: "2026-12-10T23:59",
 
+  // Date LIMITE de paiement : sans paiement à cette date, l'élève ne peut pas participer
+  dateLimitePaiement: "2026-12-10T23:59",
+
   // --- Google Form -----------------------------------------------------
   // 1. Dans Google Forms : bouton "Envoyer" > onglet "< >" (intégrer)
   // 2. Copier l'URL qui est dans src="..." et la coller ci-dessous
