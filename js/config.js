@@ -52,13 +52,13 @@ const CONFIG = {
 
   // --- Traiteur --------------------------------------------------------
   traiteur: {
-    nom: "Nom du traiteur",
-    slogan: "Cuisine maison & produits locaux",
+    nom: "E.Leclerc Traiteur",
+    slogan: "Le service traiteur de votre E.Leclerc nantais",
     description:
-      "Présentation du traiteur : son histoire, sa cuisine, ses valeurs. " +
-      "Par exemple : installé à Nantes depuis 2015, il travaille des produits frais et de saison " +
-      "issus de producteurs de la région.",
-    points: ["Produits frais et de saison", "Fait maison", "Options végétariennes et adaptations allergies"],
+      "Pour notre dîner de Noël, nous faisons confiance au service traiteur E.Leclerc. " +
+      "Leur équipe prépare le repas de la soirée, et nous ferons adapter les assiettes " +
+      "selon les allergies et régimes alimentaires que vous nous signalez à l'inscription.",
+    points: ["Repas préparé par le rayon traiteur", "Alternatives végétariennes", "Adaptations allergies & intolérances"],
     photo: "",     // ex : "images/traiteur.jpg" (laisser "" pour afficher une illustration)
     site: "",      // ex : "https://www.traiteur-exemple.fr"
     instagram: "", // ex : "https://instagram.com/traiteur"
