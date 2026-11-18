@@ -8,7 +8,7 @@ const CONFIG = {
   nomEvenement: "Noël de l'IHECF",
   sousTitre: "Une journée magique pour les élèves de l'IHECF Nantes",
   lieu: "IHECF Nantes", // ex : "Campus IHECF, 12 rue ..., Nantes"
-  prix: "15 € la journée, repas inclus",
+  prix: "Concours du pull moche : 2 € · Dîner du soir : 10 €",
 
   // Adresse publique du site (affichée avec le QR code dans la partie "Partager")
   urlSite: "https://lepainauchocolat.github.io/noel-ihecf/",
@@ -39,7 +39,7 @@ const CONFIG = {
         { heure: "13h50 – 14h30", titre: "Loup-garou & jeux de société", description: "Parties de loup-garou et jeux de société.", icone: "🐺" },
         { heure: "14h35 – 15h10", titre: "Blind test", description: "Par équipes de 4 ou 5 : +1 point pour le titre, +1 point pour l'artiste, −0,5 point par mauvaise réponse.", icone: "🎵" },
         { heure: "15h30 – 16h00", titre: "Quiz de culture générale", description: "Testez vos connaissances… et peut-être quelques photos de Noël de nous enfants 👀", icone: "🧠" },
-        { heure: "16h00 – 16h30", titre: "Concours du pull moche", description: "Le jury présélectionne 5 pulls, puis tout le monde vote pour le meilleur. Des prix pour les 3 premiers !", icone: "🧶" },
+        { heure: "16h00 – 16h30", titre: "Concours du pull moche", description: "Le jury présélectionne 5 pulls, puis tout le monde vote pour le meilleur. Des prix pour les 3 premiers ! Participation : 2 €.", icone: "🧶" },
         { heure: "16h30 – 16h45", titre: "Remise des prix", description: "Récompenses des gagnants du concours du pull moche.", icone: "🏆" },
       ],
     },
@@ -74,7 +74,7 @@ const CONFIG = {
   // --- Menu du dîner ---------------------------------------------------
   menu: {
     heure: "19h45",
-    prix: "Inclus dans le tarif de la journée (15 €)", // laisser "" pour masquer
+    prix: "10 € par personne", // laisser "" pour masquer
     sections: [
       { titre: "Entrée",  plats: ["Velouté de potimarron & éclats de châtaigne", "Option végétarienne disponible"] },
       { titre: "Plat",    plats: ["Suprême de volaille, sauce aux morilles", "Gratin dauphinois & légumes rôtis", "Alternative végétarienne : risotto aux champignons"] },
