@@ -3,6 +3,8 @@
    et les ajoute dans l'onglet "Inscriptions" du Google Sheet.
 
    Installation (une seule fois) :
+   Projet : https://script.google.com/home/projects/1s-A_h5OArQORnR1jRcbc_rUvEmMayCp8i9euFe-AA0qHT7t_fU0thK5L/edit
+   (fichier Inscription.gs). Pour une nouvelle installation :
    1. Aller sur https://script.google.com (connecté avec le compte
       propriétaire du Google Sheet) > "Nouveau projet"
    2. Remplacer tout le code par ce fichier, puis Enregistrer
@@ -94,4 +96,9 @@ function clean(value, max) {
 
 function json(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
+}
+
+// À lancer une fois depuis l'éditeur (bouton "Exécuter") pour autoriser l'accès au Google Sheet
+function autoriser() {
+  Logger.log("Onglet prêt : " + getSheet().getName());
 }

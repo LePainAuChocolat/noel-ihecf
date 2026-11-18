@@ -31,7 +31,7 @@ const CONFIG = {
   // --- Formulaire d'inscription du site ---------------------------------
   // URL de l'application Web Google Apps Script (finit par "/exec").
   // Tant qu'elle est vide, c'est l'ancien Google Form ci-dessus qui s'affiche.
-  inscriptionScriptUrl: "",
+  inscriptionScriptUrl: "https://script.google.com/macros/s/AKfycbwz81IfzbnqmWhj8R6f7gDzVfIjYid4T5xrjZxYbdVeQV-62YpyBvmtC8UpoSEjnz66/exec",
 
   // Tarifs (en euros) des activités payantes
   tarifs: { pull: 2, diner: 10 },
