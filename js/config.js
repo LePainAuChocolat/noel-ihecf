@@ -68,7 +68,7 @@ const CONFIG = {
       horaires: "19h00 – 23h00",
       intro: "Dîner sur inscription uniquement.",
       activites: [
-        { heure: "19h00", titre: "Apéritif de bienvenue", description: "Cocktails avec et sans alcool, amuse-bouches.", icone: "🥂" },
+        { heure: "19h00", titre: "Apéritif de bienvenue", description: "Cocktails sans alcool, amuse-bouches.", icone: "🥂" },
         { heure: "19h45", titre: "Dîner de Noël", description: "Repas festif préparé par notre traiteur.", icone: "🍽️" },
         { heure: "21h30", titre: "Remise des prix", description: "Résultats du tournoi et du concours de pulls.", icone: "🏆" },
         { heure: "22h00", titre: "Soirée dansante", description: "DJ set et photobooth de Noël.", icone: "🎶" },
@@ -99,7 +99,7 @@ const CONFIG = {
       { titre: "Entrée",  plats: ["Velouté de potimarron & éclats de châtaigne", "Option végétarienne disponible"] },
       { titre: "Plat",    plats: ["Suprême de volaille, sauce aux morilles", "Gratin dauphinois & légumes rôtis", "Alternative végétarienne : risotto aux champignons"] },
       { titre: "Dessert", plats: ["Bûche de Noël chocolat ou fruits rouges"] },
-      { titre: "Boissons", plats: ["Jus de fruits, sodas, eau", "Vin chaud (avec modération, +18 ans)"] },
+      { titre: "Boissons", plats: ["Jus de fruits, sodas, eau", "Cocktails sans alcool"] },
     ],
     note: "Indiquez bien vos allergies et intolérances dans le formulaire d'inscription : nous adapterons votre assiette.",
   },

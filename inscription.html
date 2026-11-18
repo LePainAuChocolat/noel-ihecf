@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=202611181400">
+  <link rel="stylesheet" href="css/style.css?v=202611181430">
 </head>
 <body data-page="inscription">
   <canvas id="snow" aria-hidden="true"></canvas>
@@ -85,6 +85,20 @@
           <label class="choice big"><input type="checkbox" name="santa" value="Oui"> <span>🎁 Je participe au Secret Santa <em>(cadeau entre 5 et 10 €) — facultatif</em></span></label>
         </fieldset>
 
+        <fieldset id="image-field">
+          <legend>📸 Droit à l'image</legend>
+          <p class="hint">Des photos et vidéos seront prises pendant l'événement et pourront être publiées sur les réseaux du BDE.</p>
+          <div class="field">
+            <span class="q">Acceptes-tu d'être pris(e) en photo et/ou filmé(e) ? *</span>
+            <div class="choices grid">
+              <label class="choice"><input type="radio" name="image" value="J&#39;accepte les photos et les vidéos"> <span>J'accepte les photos et les vidéos</span></label>
+              <label class="choice"><input type="radio" name="image" value="J&#39;accepte les photos uniquement"> <span>J'accepte les photos uniquement</span></label>
+              <label class="choice"><input type="radio" name="image" value="J&#39;accepte les vidéos uniquement"> <span>J'accepte les vidéos uniquement</span></label>
+              <label class="choice"><input type="radio" name="image" value="Je refuse les photos et les vidéos"> <span>Je refuse les photos et les vidéos</span></label>
+            </div>
+          </div>
+        </fieldset>
+
         <fieldset id="pay-block" hidden>
           <legend>💳 Paiement</legend>
           <p class="total">Total à payer : <strong id="total"></strong></p>
@@ -130,7 +144,7 @@
     <p class="footer-links"><a href="reglement.html">Règlement &amp; CGV</a><a href="index.html#partager">📲 Partager</a><span id="contact-links"></span></p>
   </footer>
 
-  <script src="js/config.js?v=202611181400"></script>
-  <script src="js/main.js?v=202611181400"></script>
+  <script src="js/config.js?v=202611181430"></script>
+  <script src="js/main.js?v=202611181430"></script>
 </body>
 </html>

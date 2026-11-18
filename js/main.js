@@ -237,6 +237,7 @@
         if (!checked("allergies").length && !F.allergies_autre.value.trim()) return fail("Indique tes allergies (ou « Aucune allergie »).", $("allergies-field"));
         if (!checked("regime").length && !F.regime_autre.value.trim()) return fail("Indique ton régime alimentaire (ou « Aucun régime particulier »).", $("regimes-field"));
       }
+      if (!val("image")) return fail("Indique ton choix pour le droit à l'image.", $("image-field"));
       if (total() > 0 && !val("paiement")) return fail("Choisis ton moyen de paiement.", $("pay-block"));
       return true;
     }
@@ -251,6 +252,7 @@
         diner: diner ? "Oui" : "Non",
         pull: F.pull.checked ? "Oui" : "Non",
         santa: F.santa.checked ? "Oui" : "Non",
+        image: val("image"),
         allergies: diner ? join(checked("allergies"), F.allergies_autre.value) : "",
         regime: diner ? join(checked("regime"), F.regime_autre.value) : "",
         paiement: total() > 0 ? val("paiement") : "",

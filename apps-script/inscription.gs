@@ -3,9 +3,10 @@
    et les ajoute dans l'onglet "Inscriptions" du Google Sheet.
 
    Installation (une seule fois) :
-   1. Ouvrir le Google Sheet > Extensions > Apps Script
+   1. Aller sur https://script.google.com (connecté avec le compte
+      propriétaire du Google Sheet) > "Nouveau projet"
    2. Remplacer tout le code par ce fichier, puis Enregistrer
-   3. Déployer > Nouveau déploiement > type "Application Web"
+   3. Déployer > Nouveau déploiement > roue dentée > "Application Web"
         - Exécuter en tant que : Moi
         - Qui a accès : Tout le monde
    4. Autoriser l'accès, puis copier l'URL (qui finit par /exec)
@@ -14,12 +15,17 @@
    modifier (crayon) > Version : Nouvelle version.
    ===================================================================== */
 
+const SHEET_ID = "1YooHwmoGP5HzkoK_J1RcA4PknMlIup8QNSkBsinQ6Xs";
 const SHEET_NAME = "Inscriptions";
 const DATE_LIMITE = new Date("2026-12-10T23:59:59+01:00");
 const TARIFS = { pull: 2, diner: 10 };
+const CHOIX_IMAGE = [
+  "J'accepte les photos et les vidéos", "J'accepte les photos uniquement",
+  "J'accepte les vidéos uniquement", "Je refuse les photos et les vidéos",
+];
 const HEADERS = [
   "Horodateur", "Prénom", "Nom", "Classe", "Dîner du soir", "Concours pull moche",
-  "Secret Santa", "Allergies alimentaires", "Régime alimentaire", "Montant à payer (€)",
+  "Secret Santa", "Droit à l'image", "Allergies alimentaires", "Régime alimentaire", "Montant à payer (€)",
   "Moyen de paiement", "Payé ?", "Présent(e) ?",
 ];
 
@@ -33,6 +39,8 @@ function doPost(e) {
 
   const diner = p.diner === "Oui", pull = p.pull === "Oui", santa = p.santa === "Oui";
   if (p.diner !== "Oui" && p.diner !== "Non") return json({ ok: false, error: "Indique si tu restes manger le soir." });
+
+  if (CHOIX_IMAGE.indexOf(p.image) === -1) return json({ ok: false, error: "Indique ton choix pour le droit à l'image." });
 
   const allergies = diner ? clean(p.allergies, 400) : "";
   const regime = diner ? clean(p.regime, 400) : "";
@@ -52,10 +60,10 @@ function doPost(e) {
     const sheet = getSheet();
     sheet.appendRow([
       new Date(), prenom, nom, classe, diner ? "Oui" : "Non", pull ? "Oui" : "Non",
-      santa ? "Oui" : "Non", allergies, regime, montant, paiement, false, false,
+      santa ? "Oui" : "Non", p.image, allergies, regime, montant, paiement, false, false,
     ]);
     const row = sheet.getLastRow();
-    sheet.getRange(row, 12, 1, 2).insertCheckboxes();
+    sheet.getRange(row, 13, 1, 2).insertCheckboxes();
   } finally {
     lock.releaseLock();
   }
@@ -67,7 +75,7 @@ function doGet() {
 }
 
 function getSheet() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = SpreadsheetApp.openById(SHEET_ID);
   let sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
