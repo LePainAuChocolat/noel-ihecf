@@ -37,8 +37,8 @@ const CONFIG = {
       activites: [
         { heure: "12h30 – 13h45", titre: "Repas en musique", description: "Chacun amène sa nourriture, avec de la musique en fond sonore. Distribution des pulls IHECF pendant le repas.", icone: "🥪" },
         { heure: "13h50 – 14h30", titre: "Loup-garou & jeux de société", description: "Parties de loup-garou et jeux de société.", icone: "🐺" },
-        { heure: "14h35 – 15h10", titre: "Blind test", description: "Par équipes de 4 ou 5 : +1 point pour le titre, +1 point pour l'artiste, −0,5 point par mauvaise réponse.", icone: "🎵" },
-        { heure: "15h30 – 16h00", titre: "Quiz de culture générale", description: "Testez vos connaissances… et peut-être quelques photos de Noël de nous enfants 👀", icone: "🧠" },
+        { heure: "14h35 – 15h10", titre: "Blind test", description: "Par équipes de 4 ou 5 : +1 point pour le titre, +1 point pour l'artiste.", icone: "🎵" },
+        { heure: "15h30 – 16h00", titre: "Quiz de culture générale", description: "Testez vos connaissances en culture générale !", icone: "🧠" },
         { heure: "16h00 – 16h30", titre: "Concours du pull moche", description: "Le jury présélectionne 5 pulls, puis tout le monde vote pour le meilleur. Des prix pour les 3 premiers ! Participation : 2 €.", icone: "🧶" },
         { heure: "16h30 – 16h45", titre: "Remise des prix", description: "Récompenses des gagnants du concours du pull moche.", icone: "🏆" },
       ],
