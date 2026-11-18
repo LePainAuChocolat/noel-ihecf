@@ -35,7 +35,7 @@ const CONFIG = {
       horaires: "12h30 – 16h45",
       intro: "Ouverte à tous les élèves inscrits.",
       activites: [
-        { heure: "12h30 – 13h45", titre: "Repas en musique", description: "Chacun amène sa nourriture, avec de la musique en fond sonore. Distribution des pulls pendant le repas.", icone: "🥪" },
+        { heure: "12h30 – 13h45", titre: "Repas en musique", description: "Chacun amène sa nourriture, avec de la musique en fond sonore. Distribution des pulls IHECF pendant le repas.", icone: "🥪" },
         { heure: "13h50 – 14h30", titre: "Loup-garou & jeux de société", description: "Parties de loup-garou et jeux de société.", icone: "🐺" },
         { heure: "14h35 – 15h10", titre: "Blind test", description: "Par équipes de 4 ou 5 : +1 point pour le titre, +1 point pour l'artiste, −0,5 point par mauvaise réponse.", icone: "🎵" },
         { heure: "15h30 – 16h00", titre: "Quiz de culture générale", description: "Testez vos connaissances… et peut-être quelques photos de Noël de nous enfants 👀", icone: "🧠" },
