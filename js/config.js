@@ -28,6 +28,26 @@ const CONFIG = {
   //    (elle doit finir par "viewform?embedded=true")
   googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSeWX1zbrp7ROeV9Eq6U2LI_jbyLxPFf8_GebbIeyOr2PgZVqw/viewform?embedded=true",
 
+  // --- Formulaire d'inscription du site ---------------------------------
+  // URL de l'application Web Google Apps Script (finit par "/exec").
+  // Tant qu'elle est vide, c'est l'ancien Google Form ci-dessus qui s'affiche.
+  inscriptionScriptUrl: "",
+
+  // Tarifs (en euros) des activités payantes
+  tarifs: { pull: 2, diner: 10 },
+
+  // Listes proposées dans le formulaire (si l'élève reste dîner)
+  allergies: [
+    "Aucune allergie", "Arachides", "Fruits à coque (noix, noisettes, amandes, pistaches…)",
+    "Gluten (blé, seigle, orge, avoine)", "Lait", "Œufs", "Poisson", "Crustacés", "Mollusques",
+    "Soja", "Céleri", "Moutarde", "Sésame", "Lupin", "Sulfites (vin, fruits secs…)",
+  ],
+  regimes: [
+    "Aucun régime particulier", "Végétarien (sans viande ni poisson)",
+    "Végétalien / vegan (aucun produit d'origine animale)", "Pescétarien (poisson accepté, pas de viande)",
+    "Sans porc", "Halal", "Casher", "Sans gluten", "Sans lactose",
+  ],
+
   // --- Programme -------------------------------------------------------
   programme: {
     journee: {

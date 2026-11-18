@@ -154,11 +154,13 @@
     function update() {
       const closed = isClosed();
       $("form-closed").hidden = !closed;
-      $("form-missing").hidden = closed || !!C.googleFormUrl;
-      $("form-open").hidden = closed || !C.googleFormUrl;
+      const site = !!C.inscriptionScriptUrl;
+      $("form-missing").hidden = closed || site || !!C.googleFormUrl;
+      $("form-site").hidden = closed || !site;
+      $("form-open").hidden = closed || site || !C.googleFormUrl;
       $("deadline-banner").classList.toggle("is-closed", closed);
 
-      if (!closed && C.googleFormUrl && !$("gform").getAttribute("src")) {
+      if (!closed && !site && C.googleFormUrl && !$("gform").getAttribute("src")) {
         $("gform").src = C.googleFormUrl;
         $("form-link").href = C.googleFormUrl.replace(/[?&]embedded=true/, "");
       }
@@ -172,10 +174,112 @@
       }
       return closed;
     }
+    if (C.inscriptionScriptUrl) initSignupForm();
     if (!update()) {
       // Ferme le formulaire automatiquement si la page reste ouverte au moment de la clôture
       const timer = setInterval(() => { if (update()) clearInterval(timer); }, 30000);
     }
+  }
+
+  /* ---------- Formulaire d'inscription du site ---------- */
+  function initSignupForm() {
+    const form = $("signup-form");
+    const F = form.elements;
+    const T = C.tarifs || { pull: 0, diner: 0 };
+    const euro = (n) => n.toLocaleString("fr-FR") + " €";
+    const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+
+    $$("[data-price]").forEach((el) => { el.textContent = `(${euro(T[el.dataset.price])})`; });
+    const fill = (id, name, list) => {
+      $(id).innerHTML = list.map((x) => `<label class="choice"><input type="checkbox" name="${name}" value="${esc(x)}"> <span>${esc(x)}</span></label>`).join("");
+    };
+    fill("allergies-list", "allergies", C.allergies || []);
+    fill("regimes-list", "regime", C.regimes || []);
+
+    // « Aucune allergie » / « Aucun régime » s'excluent avec les autres cases
+    ["allergies", "regime"].forEach((name) => {
+      const boxes = [...form.querySelectorAll(`input[name="${name}"]`)];
+      boxes.forEach((b, i) => b.addEventListener("change", () => {
+        if (!b.checked) return;
+        if (i === 0) boxes.slice(1).forEach((o) => { o.checked = false; });
+        else boxes[0].checked = false;
+      }));
+    });
+
+    const val = (name) => (form.querySelector(`input[name="${name}"]:checked`) || {}).value || "";
+    const checked = (name) => [...form.querySelectorAll(`input[name="${name}"]:checked`)].map((b) => b.value);
+    const total = () => (F.pull.checked ? T.pull : 0) + (val("diner") === "Oui" ? T.diner : 0);
+
+    function refresh() {
+      $("diet-block").hidden = val("diner") !== "Oui";
+      const t = total();
+      $("pay-block").hidden = t === 0;
+      $("total").textContent = euro(t);
+    }
+    form.addEventListener("change", refresh);
+    refresh();
+
+    function fail(msg, el) {
+      const e = $("form-error");
+      e.textContent = "⚠️ " + msg;
+      e.hidden = false;
+      (el || e).scrollIntoView({ behavior: "smooth", block: "center" });
+      return false;
+    }
+
+    function validate() {
+      $("form-error").hidden = true;
+      for (const n of ["prenom", "nom", "classe"]) {
+        if (!F[n].value.trim()) { F[n].focus(); return fail("Remplis ton prénom, ton nom et ta classe.", F[n]); }
+      }
+      if (!val("diner")) return fail("Indique si tu restes manger le soir.");
+      if (val("diner") === "Oui") {
+        if (!checked("allergies").length && !F.allergies_autre.value.trim()) return fail("Indique tes allergies (ou « Aucune allergie »).", $("allergies-field"));
+        if (!checked("regime").length && !F.regime_autre.value.trim()) return fail("Indique ton régime alimentaire (ou « Aucun régime particulier »).", $("regimes-field"));
+      }
+      if (total() > 0 && !val("paiement")) return fail("Choisis ton moyen de paiement.", $("pay-block"));
+      return true;
+    }
+
+    form.addEventListener("submit", async (ev) => {
+      ev.preventDefault();
+      if (!validate()) return;
+      const diner = val("diner") === "Oui";
+      const join = (list, other) => [...list, other.trim()].filter(Boolean).join(", ");
+      const data = {
+        prenom: F.prenom.value.trim(), nom: F.nom.value.trim(), classe: F.classe.value.trim(),
+        diner: diner ? "Oui" : "Non",
+        pull: F.pull.checked ? "Oui" : "Non",
+        santa: F.santa.checked ? "Oui" : "Non",
+        allergies: diner ? join(checked("allergies"), F.allergies_autre.value) : "",
+        regime: diner ? join(checked("regime"), F.regime_autre.value) : "",
+        paiement: total() > 0 ? val("paiement") : "",
+        website: F.website.value,
+      };
+      const btn = $("submit-btn");
+      btn.disabled = true;
+      btn.textContent = "Envoi en cours…";
+      let out;
+      try {
+        const res = await fetch(C.inscriptionScriptUrl, { method: "POST", body: new URLSearchParams(data) });
+        out = await res.json();
+      } catch (err) {
+        out = { ok: false, error: "L'envoi a échoué. Vérifie ta connexion et réessaie." };
+      }
+      if (!out.ok) {
+        fail(out.error || "L'envoi a échoué, réessaie.");
+        btn.disabled = false;
+        btn.textContent = "Valider mon inscription";
+        return;
+      }
+      const t = typeof out.montant === "number" ? out.montant : total();
+      $("signup-ok-text").innerHTML = t > 0
+        ? `Merci ${esc(data.prenom)} ! Il te reste à payer <strong>${euro(t)}</strong> par ${data.paiement.toLowerCase()} avant le ${fmtDate(new Date(C.dateLimitePaiement || C.dateLimiteInscription), true)}.`
+        : `Merci ${esc(data.prenom)} ! Rendez-vous le jour J 🎅`;
+      form.hidden = true;
+      $("signup-ok").hidden = false;
+      $("signup-ok").scrollIntoView({ behavior: "smooth", block: "center" });
+    });
   }
 
   /* ---------- Neige ---------- */
