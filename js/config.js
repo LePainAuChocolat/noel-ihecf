@@ -14,7 +14,7 @@ const CONFIG = {
   urlSite: "https://lepainauchocolat.github.io/noel-ihecf/",
 
   // Date de l'événement (format AAAA-MM-JJTHH:MM, heure de Paris)
-  dateEvenement: "2026-12-18T10:00",
+  dateEvenement: "2026-12-18T12:30",
 
   // Date LIMITE d'inscription : après cette date, le formulaire se ferme
   dateLimiteInscription: "2026-12-10T23:59",
@@ -32,15 +32,15 @@ const CONFIG = {
   programme: {
     journee: {
       titre: "La journée",
-      horaires: "10h00 – 18h00",
+      horaires: "12h30 – 16h45",
       intro: "Ouverte à tous les élèves inscrits.",
       activites: [
-        { heure: "10h00", titre: "Accueil & chocolat chaud", description: "Ouverture des portes, viennoiseries et boissons chaudes.", icone: "☕" },
-        { heure: "11h00", titre: "Atelier déco de Noël", description: "Décoration du sapin et fabrication de couronnes.", icone: "🎄" },
-        { heure: "12h30", titre: "Pause déjeuner", description: "Temps libre pour se restaurer.", icone: "🥪" },
-        { heure: "14h00", titre: "Tournoi de jeux", description: "Blind test de Noël, quiz et jeux en équipe.", icone: "🎲" },
-        { heure: "16h00", titre: "Secret Santa", description: "Échange de cadeaux (budget conseillé : 10 €).", icone: "🎁" },
-        { heure: "17h00", titre: "Concours du plus beau pull moche", description: "Le pull le plus kitsch remporte un prix !", icone: "🧶" },
+        { heure: "12h30 – 13h45", titre: "Repas en musique", description: "Chacun amène sa nourriture, avec de la musique en fond sonore. Distribution des pulls pendant le repas.", icone: "🥪" },
+        { heure: "13h50 – 14h30", titre: "Loup-garou & jeux de société", description: "Parties de loup-garou et jeux de société.", icone: "🐺" },
+        { heure: "14h35 – 15h10", titre: "Blind test", description: "Par équipes de 4 ou 5 : +1 point pour le titre, +1 point pour l'artiste, −0,5 point par mauvaise réponse.", icone: "🎵" },
+        { heure: "15h30 – 16h00", titre: "Quiz de culture générale", description: "Testez vos connaissances… et peut-être quelques photos de Noël de nous enfants 👀", icone: "🧠" },
+        { heure: "16h00 – 16h30", titre: "Concours du pull moche", description: "Le jury présélectionne 5 pulls, puis tout le monde vote pour le meilleur. Des prix pour les 3 premiers !", icone: "🧶" },
+        { heure: "16h30 – 16h45", titre: "Remise des prix", description: "Récompenses des gagnants du concours du pull moche.", icone: "🏆" },
       ],
     },
     soiree: {
